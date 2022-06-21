@@ -1,15 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <locale>
+
 using namespace std;
 
 int main(){
-    // LOGIC RUSH! V1.0
+    // LOGIC RUSH! V1.1
     setlocale(LC_ALL, "portuguese");
     vector <int> empates;
     int Qtde_Jogadores, num, maior, indice, i, desafiado, rods, tam;
     char desafio;
-    printf("---------- LOGIC RUSH! V1.0 ----------\n");
+    printf("---------- LOGIC RUSH! V1.1 ----------\n");
     printf("Digite a quantidade de jogadores: ");
     scanf("%d", &Qtde_Jogadores);
     while (Qtde_Jogadores > 3 || Qtde_Jogadores < 2){
@@ -137,9 +138,11 @@ int main(){
 					emp = false;
 				}
 				else{
-					empates.push_back(i + 1);
-					empates.push_back(i + 2);
-					emp = true;
+					if (Rodadas[i] == rods){
+						empates.push_back(i);
+						empates.push_back(i + 1);
+						emp = true;
+					}
 				}
 			}
 		}
@@ -148,9 +151,9 @@ int main(){
 		tam = empates.size();
 		printf("Os jogadores ");
 		for (i = 0; i < tam - 1; i++){
-			printf("%d, ", i + 1);
+			printf("%d, ", empates[i]);
 		}
-		printf("%d empataram!\n", i + 1);
+		printf("%d empataram!\n", empates[i]);
 	}
 	else{
 		printf("\nO jogador %d ganhou o jogo!\n", indice);
