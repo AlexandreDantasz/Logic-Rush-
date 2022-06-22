@@ -11,7 +11,6 @@ int main(){
     vector <int> empates;
     int Qtde_Jogadores, num, maior, indice, i, desafiado, rods, tam, cont, lembre;
     char desafio, txt[10002];
-    string points;
     printf("---------- LOGIC RUSH! V1.3 ----------\n\n");
     printf("DIGITE A QUANTIDADE DE JOGADORES: ");
     scanf("%d", &Qtde_Jogadores);
