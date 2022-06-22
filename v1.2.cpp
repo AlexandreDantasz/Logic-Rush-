@@ -6,11 +6,12 @@
 using namespace std;
 
 int main(){
-    // LOGIC RUSH! V1.2
+    // LOGIC RUSH! V1.3
     setlocale(LC_ALL, "portuguese");
     vector <int> empates;
     int Qtde_Jogadores, num, maior, indice, i, desafiado, rods, tam, cont;
     char desafio, txt[10002];
+    string points;
     printf("---------- LOGIC RUSH! V1.2 ----------\n\n");
     printf("DIGITE A QUANTIDADE DE JOGADORES: ");
     scanf("%d", &Qtde_Jogadores);
@@ -54,18 +55,14 @@ int main(){
 					scanf("%s", txt);
 					desafiado = txt[0] - 48;
 				}
-				cin.ignore();
 				printf("DIGITE A QUANTIDADE DE PONTOS QUE O JOGADOR %d GANHOU/PERDEU: ", i + 1);
-				scanf("%s", txt);
-				num = txt[0];
-				while (strlen(txt) > 1 || (num < 48 || num > 57) || (num - 48 != 0 && num - 48 != 5 && num - 48 != 10 && num - 48 != 20 && num - 48 != -5 && num - 48 != -10 && num - 48 != -20)){
+				scanf("%d", &num);
+				while (num != 0 && num != 5 && num != 10 && num != 20 && num != -5 && num != -10 && num != -20){
 					printf("\n!!!!! PONTUAÇÃO INEXISTENTE !!!!!\n\n");
 					printf("DIGITE A QUANTIDADE DE PONTOS QUE O JOGADOR %d GANHOU/PERDEU: ", i + 1);
-					cin.ignore();
-					scanf("%s", txt);
-					num = txt[0];
+					scanf("%d", &num);
 				}
-				Jogadores[i] += num - 48;
+				Jogadores[i] += num;
 				cin.ignore();
 				printf("DIGITE A QUANTIDADE DE RODADAS QUE O JOGADOR %d TEM: ", i + 1);
 				scanf("%s", txt);
@@ -83,18 +80,13 @@ int main(){
 					break;
 				}
 				printf("DIGITE A QUANTIDADE DE PONTOS QUE O JOGADOR %d GANHOU/PERDEU: ", desafiado);
-				cin.ignore();
-				scanf("%s", txt);
-				num = txt[0];
-				while (strlen(txt) > 1 || (num < 48 || num > 57) || (num - 48 != 0 && num - 48 != 5 && num - 48 != 10 && num - 48 != 20 && num - 48 != -5 && num - 48 != -10 && num - 48 != -20)){
+				scanf("%d", &num);
+				while (num != 0 && num != 5 && num != 10 && num != 20 && num != -5 && num != -10 && num != -20){
 					printf("\n!!!!! PONTUAÇÃO INEXISTENTE !!!!!\n\n");
-					cin.ignore();
 					printf("DIGITE A QUANTIDADE DE PONTOS QUE O JOGADOR %d GANHOU/PERDEU: ", desafiado);
-					scanf("%s", txt);
-					num = txt[0];
+					scanf("%d", &num);
 				}
-				cin.ignore();
-				Jogadores[desafiado - 1] += num - 48;
+				Jogadores[desafiado - 1] += num;
 				printf("DIGITE A QUANTIDADE DE RODADAS QUE O JOGADOR %d TEM: ", desafiado);
 				scanf("%s", txt);
 				rods = txt[0] - 48;
@@ -129,17 +121,14 @@ int main(){
 					break;
 				}
 				printf("DIGITE A QUANTIDADE DE PONTOS QUE O JOGADOR %d GANHOU/PERDEU: ", i + 1);
-				cin.ignore();
-				scanf("%s", txt);
-				num = txt[0];
-				while (strlen(txt) > 1 || (num < 48 || num > 57) || (num - 48 != 0 && num - 48 != 5 && num - 48 != 10 && num - 48 != 20 && num - 48 != -5 && num - 48 != -10 && num - 48 != -20)){
+				scanf("%d", &num);
+				while (num != 0 && num != 5 && num != 10 && num != 20 && num != -5 && num != -10 && num != -20){
 					printf("\n!!!!! PONTUAÇÃO INEXISTENTE !!!!!\n\n");
 					cin.ignore();
 					printf("DIGITE A QUANTIDADE DE PONTOS QUE O JOGADOR %d GANHOU/PERDEU: ", i + 1);
-					scanf("%s", txt);
-					num = txt[0] - 48;
+					scanf("%d", &num);
 				}
-				Jogadores[i] += num - 48;
+				Jogadores[i] += num;
 			}
 		}
 		printf("\n---------- PLACAR ATUAL! ----------\n\n");
