@@ -9,10 +9,10 @@ int main(){
     // LOGIC RUSH! V1.3
     setlocale(LC_ALL, "portuguese");
     vector <int> empates;
-    int Qtde_Jogadores, num, maior, indice, i, desafiado, rods, tam, cont;
+    int Qtde_Jogadores, num, maior, indice, i, desafiado, rods, tam, cont, lembre;
     char desafio, txt[10002];
     string points;
-    printf("---------- LOGIC RUSH! V1.2 ----------\n\n");
+    printf("---------- LOGIC RUSH! V1.3 ----------\n\n");
     printf("DIGITE A QUANTIDADE DE JOGADORES: ");
     scanf("%d", &Qtde_Jogadores);
     while (Qtde_Jogadores > 3 || Qtde_Jogadores < 2){
@@ -138,7 +138,7 @@ int main(){
 	}
 	printf("\n---------- RESULTADO! ----------\n");
 	emp = false;
-	maior = Jogadores[0];
+	maior = -52802;
 	cont = Jogadores[0];
 	for (i = 0; i < Qtde_Jogadores && Jogadores[i] == cont; i++);
 	if (i == Qtde_Jogadores){
@@ -150,11 +150,12 @@ int main(){
 				maior = Jogadores[i];
 				rods = Rodadas[i];
 				indice = i + 1;
+				lembre = i + 1;
 				emp = false;
 			}
 			else{
 				if (Jogadores[i] == maior){
-					empates.push_back(i);
+					empates.push_back(lembre);
 					empates.push_back(i + 1);
 					emp = true;
 				}
@@ -172,4 +173,6 @@ int main(){
 			printf("\nO JOGADOR %d GANHOU O JOGO!\n", indice);
 		}
 	}
+	return 0;
+	system("pause");
 }
